@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0%;
+        padding: 0%;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      button {
+        width: auto;
+        height: 40px;
+        font-size: larger;
+        border-radius: 20px;
+      }
+      button:active {
+        transform: scale(0.99);
+      }
+      label {
+        font-size: xx-large;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <label id="color">RANDOM COLOR</label>
+      <button id="generate">Generate Random Color</button>
+    </div>
+  </body>
+  <script>
+    function getRandomColor() {
+      return "#" + Math.floor(Math.random() * 16777215).toString(16);
+    }
+    document.getElementById("generate").addEventListener("click", function () {
+      let randomColor = getRandomColor();
+      document.body.style.transition = "background-color 0.5s ease";
+      document.body.style.backgroundColor = randomColor;
+      document.getElementById("color").innerHTML = randomColor.toUpperCase();
+    });
+  </script>
+</html>
